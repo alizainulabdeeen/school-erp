@@ -1,5 +1,11 @@
 from rest_framework import generics
-from .serializers import UserRegisterSerializer
+from rest_framework.permissions import AllowAny
+from user.api.v1.serializers import UserRegisterSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView
 
-class UserRegisterView(generics.CreateAPIView):
+class UserRegisterCreateAPIView(generics.CreateAPIView):
+    permission_classes = [AllowAny]
     serializer_class = UserRegisterSerializer
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+    permission_classes = [AllowAny]
