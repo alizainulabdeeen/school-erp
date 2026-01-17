@@ -7,7 +7,7 @@ load_dotenv(BASE_DIR / ".env")
 
 AUTH_USER_MODEL = 'user.User'
 
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+DEBUG = os.getenv('DEBUG')
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
