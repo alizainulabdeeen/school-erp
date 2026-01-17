@@ -1,13 +1,12 @@
 from django.db import models
-from core.models import BaseModel
 from django.contrib.auth.models import AbstractUser
 
-class User(BaseModel, AbstractUser):
-    full_name = models.CharField(max_length=100)
+class User(AbstractUser):
+    username = None
     email = models.EmailField(unique=True)
 
     USERNAME_FIELD = 'email'  
-    REQUIRED_FIELDS = ['username', 'full_name']
+    REQUIRED_FIELDS = []
 
     def __str__(self):
         return self.email
